@@ -22,7 +22,7 @@ export class OrdersService {
         (item: OrderItemDto) => item.product_id,
       );
       const products: any[] = await firstValueFrom(
-        this.client.send({ cmd: 'validate_products' }, productIds),
+        this.client.send({ cmd: 'product.validate_ids' }, productIds),
       );
 
       //2. CALCULOS MATEMATICOS
@@ -62,6 +62,7 @@ export class OrdersService {
   }
 
   async findAll(orderPaginationDto: OrderPaginationDto) {
+    
     const currentPage = orderPaginationDto.page;
     const perPage = orderPaginationDto.limit;
 

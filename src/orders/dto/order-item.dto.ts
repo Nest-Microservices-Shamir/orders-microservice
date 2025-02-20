@@ -1,9 +1,8 @@
-import { IsNumber, IsPositive } from 'class-validator';
+import { IsNumber, IsPositive, IsUUID } from 'class-validator';
 
 export class OrderItemDto {
-  @IsNumber()
-  @IsPositive()
-  product_id: number;
+  @IsUUID()
+  product_id: string;
 
   @IsNumber()
   @IsPositive()
