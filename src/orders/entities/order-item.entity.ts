@@ -4,7 +4,7 @@ import { Order } from './order.entity';
 
 @Table({
   timestamps: true,
-  tableName: 'order_item',
+  tableName: "order_item",
   paranoid: true,
   freezeTableName: true,
 })
@@ -13,8 +13,8 @@ export class OrderItem extends Model {
   @Column({ type: DataType.UUID, defaultValue: UUIDV4(), primaryKey: true })
   id: string;
 
-  @Column
-  product_id: number;
+  @Column({ type: DataType.UUID })
+  product_id: string;
 
   @Column
   quantity: number;
